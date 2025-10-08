@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - Rangga</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-top">
+                <div class="logo">
+                    <a href="index.html">Rangga</a>
+                </div>
+                <div class="search-bar">
+                    <input type="text" placeholder="Cari produk...">
+                    <button type="submit"><i class="fas fa-search"></i></button>
+                </div>
+                <div class="header-actions">
+                    <a href="dashboard.html" class="user-account">
+                        <i class="fas fa-user"></i>
+                        <span>Akun Saya</span>
+                    </a>
+                    <a href="keranjang.html" class="cart">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-count">0</span>
+                    </a>
+                </div>
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html">Beranda</a></li>
+                    <li><a href="produk.html?kategori=smartphone">Smartphone</a></li>
+                    <li><a href="produk.html?kategori=laptop">Laptop</a></li>
+                    <li><a href="produk.html?kategori=tablet">Tablet</a></li>
+                    <li><a href="produk.html?kategori=aksesoris">Aksesoris</a></li>
+                    <li><a href="produk.html?kategori=tv">TV</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Breadcrumb -->
+    <div class="breadcrumb">
+        <div class="container">
+            <ul>
+                <li><a href="index.html">Beranda</a></li>
+                <li><a href="keranjang.html">Keranjang Belanja</a></li>
+                <li><span>Checkout</span></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Checkout Section -->
+    <section class="checkout-section">
+        <div class="container">
+            <h1 class="section-title">Checkout</h1>
+            
+            <div class="checkout-container">
+                <div class="checkout-steps">
+                    <div class="step active">
+                        <div class="step-number">1</div>
+                        <div class="step-title">Alamat Pengiriman</div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <div class="step-title">Metode Pembayaran</div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <div class="step-title">Konfirmasi Pesanan</div>
+                    </div>
+                </div>
+                
+                <div class="checkout-content">
+                    <div class="checkout-form">
+                        <!-- Step 1: Alamat Pengiriman -->
+                        <div class="checkout-step active" id="step-1">
+                            <h2>Alamat Pengiriman</h2>
+                            
+                            <div class="saved-addresses">
+                                <h3>Alamat Tersimpan</h3>
+                                <div class="address-list">
+                                    <div class="address-item selected">
+                                        <div class="address-radio">
+                                            <input type="radio" name="address" id="address-1" checked>
+                                            <label for="address-1">
+                                                <div class="address-name">Rumah</div>
+                                                <div class="address-details">
+                                                    <p>John Doe</p>
+                                                    <p>08123456789</p>
+                                                    <p>Jl. Contoh No. 123, RT 001/RW 002, Kelurahan Example, Kecamatan Sample, Jakarta Selatan, DKI Jakarta, 12345</p>
+                                                </div>
+                                            </label>
+                                        </div>
+                                        <div class="address-actions">
+                                            <button class="btn-edit">Edit</button>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="address-item">
+                                        <div class="address-radio">
+                                            <input type="radio" name="address" id="address-2">
+                                            <label for="address-2">
+                                                <div class="address-name">Kantor</div>
+                                                <div class="address-details">
+                                                    <p>John Doe</p>
+                                                    <p>08123456789</p>
+                                                    <p>Jl. Kantor No. 456, RT 003/RW 004, Kelurahan Business, Kecamatan Central, Jakarta Pusat, DKI Jakarta, 12346</p>
+                                                </div>
+                                            </label>
+                                        </div>
+                                        <div class="address-actions">
+                                            <button class="btn-edit">Edit</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <button class="btn-add-address">+ Tambah Alamat Baru</button>
+                            </div>
+                            
+                            <div class="new-address-form" style="display: none;">
+                                <h3>Alamat Baru</h3>
+                                <form id="new-address-form">
+                                    <div class="form-row">
+                                        <div class="form-group">
+                                            <label>Nama Lengkap</label>
+                                            <input type="text" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>No. Telepon</label>
+                                            <input type="tel" required>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <label>Provinsi</label>
+                                        <select required>
+                                            <option value="">Pilih Provinsi</option>
+                                            <option value="dkijakarta">DKI Jakarta</option>
+                                            <option value="jabar">Jawa Barat</option>
+                                            <option value="jateng">Jawa Tengah</option>
+                                            <option value="jatim">Jawa Timur</option>
+                                        </select>
+                                    </div>
+                                    
+                                    <div class="form-row">
+                                        <div class="form-group">
+                                            <label>Kota/Kabupaten</label>
+                                            <select required>
+                                                <option value="">Pilih Kota/Kabupaten</option>
+                                                <option value="jaksel">Jakarta Selatan</option>
+                                                <option value="jakpus">Jakarta Pusat</option>
+                                                <option value="jakbar">Jakarta Barat</option>
+                                                <option value="jaktim">Jakarta Timur</option>
+                                                <option value="jakut">Jakarta Utara</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Kecamatan</label>
+                                            <select required>
+                                                <option value="">Pilih Kecamatan</option>
+                                                <option value="kec1">Kecamatan 1</option>
+                                                <option value="kec2">Kecamatan 2</option>
+                                                <option value="kec3">Kecamatan 3</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="form-row">
+                                        <div class="form-group">
+                                            <label>Kelurahan</label>
+                                            <input type="text" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Kode Pos</label>
+                                            <input type="text" required>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <label>Alamat Lengkap</label>
+                                        <textarea rows="3" required></textarea>
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <label>Nama Alamat (Contoh: Rumah, Kantor)</label>
+                                        <input type="text" required>
+                                    </div>
+                                    
+                                    <div class="form-actions">
+                                        <button type="button" class="btn btn-outline btn-cancel">Batal</button>
+                                        <button type="submit" class="btn btn-primary">Simpan Alamat</button>
+                                    </div>
+                                </form>
+                            </div>
+                            
+                            <div class="form-actions">
+                                <a href="keranjang.html" class="btn btn-outline">Kembali ke Keranjang</a>
+                                <button class="btn btn-primary" id="continue-to-payment">Lanjut ke Pembayaran</button>
+                            </div>
+                        </div>
+                        
+                        <!-- Step 2: Metode Pembayaran -->
+                        <div class="checkout-step" id="step-2">
+                            <h2>Metode Pembayaran</h2>
+                            
+                            <div class="payment-methods">
+                                <div class="payment-method selected">
+                                    <div class="payment-radio">
+                                        <input type="radio" name="payment" id="payment-transfer" checked>
+                                        <label for="payment-transfer">
+                                            <div class="payment-icon">
+                                                <i class="fas fa-university"></i>
+                                            </div>
+                                            <div class="payment-details">
+                                                <div class="payment-name">Transfer Bank</div>
+                                                <div class="payment-desc">Transfer melalui ATM, Internet Banking, atau Mobile Banking</div>
+                                            </div>
+                                        </label>
+                                    </div>
+                                </div>
+                                
+                                <div class="payment-method">
+                                    <div class="payment-radio">
+                                        <input type="radio" name="payment" id="payment-ewallet">
+                                        <label for="payment-ewallet">
+                                            <div class="payment-icon">
+                                                <i class="fas fa-wallet"></i>
+                                            </div>
+                                            <div class="payment-details">
+                                                <div class="payment-name">E-Wallet</div>
+                                                <div class="payment-desc">GoPay, OVO, DANA, LinkAja, dan lainnya</div>
+                                            </div>
+                                        </label>
+                                    </div>
+                                </div>
+                                
+                                <div class="payment-method">
+                                    <div class="payment-radio">
+                                        <input type="radio" name="payment" id="payment-cod">
+                                        <label for="payment-cod">
+                                            <div class="payment-icon">
+                                                <i class="fas fa-hand-holding-usd"></i>
+                                            </div>
+                                            <div class="payment-details">
+                                                <div class="payment-name">COD (Bayar di Tempat)</div>
+                                                <div class="payment-desc">Bayar saat pesanan tiba</div>
+                                            </div>
+                                        </label>
+                                    </div>
+                                </div>
+                                
+                                <div class="payment-method">
+                                    <div class="payment-radio">
+                                        <input type="radio" name="payment" id="payment-cc">
+                                        <label for="payment-cc">
+                                            <div class="payment-icon">
+                                                <i class="fas fa-credit-card"></i>
+                                            </div>
+                                            <div class="payment-details">
+                                                <div class="payment-name">Kartu Kredit</div>
+                                                <div class="payment-desc">Visa, Mastercard, JCB</div>
+                                            </div>
+                                        </label>
+                                    </div>
+                                </div>
+                                
+                                <div class="payment-method">
+                                    <div class="payment-radio">
+                                        <input type="radio" name="payment" id="payment-cicilan">
+                                        <label for="payment-cicilan">
+                                            <div class="payment-icon">
+                                                <i class="fas fa-calendar-alt"></i>
+                                            </div>
+                                            <div class="payment-details">
+                                                <div class="payment-name">Cicilan</div>
+                                                <div class="payment-desc">Cicilan 0% dengan kartu kredit</div>
+                                            </div>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="payment-details" id="payment-transfer-details">
+                                <h3>Transfer Bank</h3>
+                                <p>Silakan transfer ke salah satu rekening berikut:</p>
+                                <div class="bank-list">
+                                    <div class="bank-item">
+                                        <div class="bank-logo">
+                                            <i class="fas fa-university"></i>
+                                        </div>
+                                        <div class="bank-info">
+                                            <div class="bank-name">Bank Central Asia (BCA)</div>
+                                            <div class="bank-account">1234-5678-90</div>
+                                            <div class="bank-holder">a/n PT Rangga Teknologi Indonesia</div>
+                                        </div>
+                                    </div>
+                                    <div class="bank-item">
+                                        <div class="bank-logo">
+                                            <i class="fas fa-university"></i>
+                                        </div>
+                                        <div class="bank-info">
+                                            <div class="bank-name">Bank Mandiri</div>
+                                            <div class="bank-account">9876-5432-10</div>
+                                            <div class="bank-holder">a/n PT Rangga Teknologi Indonesia</div>
+                                        </div>
+                                    </div>
+                                    <div class="bank-item">
+                                        <div class="bank-logo">
+                                            <i class="fas fa-university"></i>
+                                        </div>
+                                        <div class="bank-info">
+                                            <div class="bank-name">Bank Rakyat Indonesia (BRI)</div>
+                                            <div class="bank-account">5555-6666-7777</div>
+                                            <div class="bank-holder">a/n PT Rangga Teknologi Indonesia</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="payment-details" id="payment-ewallet-details" style="display: none;">
+                                <h3>E-Wallet</h3>
+                                <p>Pilih e-wallet yang ingin Anda gunakan:</p>
+                                <div class="ewallet-list">
+                                    <div class="ewallet-item">
+                                        <input type="radio" name="ewallet" id="ewallet-gopay">
+                                        <label for="ewallet-gopay">
+                                            <div class="ewallet-logo">
+                                                <i class="fas fa-wallet"></i>
+                                            </div>
+                                            <div class="ewallet-name">GoPay</div>
+                                        </label>
+                                    </div>
+                                    <div class="ewallet-item">
+                                        <input type="radio" name="ewallet" id="ewallet-ovo">
+                                        <label for="ewallet-ovo">
+                                            <div class="ewallet-logo">
+                                                <i class="fas fa-wallet"></i>
+                                            </div>
+                                            <div class="ewallet-name">OVO</div>
+                                        </label>
+                                    </div>
+                                    <div class="ewallet-item">
+                                        <input type="radio" name="ewallet" id="ewallet-dana">
+                                        <label for="ewallet-dana">
+                                            <div class="ewallet-logo">
+                                                <i class="fas fa-wallet"></i>
+                                            </div>
+                                            <div class="ewallet-name">DANA</div>
+                                        </label>
+                                    </div>
+                                    <div class="ewallet-item">
+                                        <input type="radio" name="ewallet" id="ewallet-linkaja">
+                                        <label for="ewallet-linkaja">
+                                            <div class="ewallet-logo">
+                                                <i class="fas fa-wallet"></i>
+                                            </div>
+                                            <div class="ewallet-name">LinkAja</div>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="payment-details" id="payment-cod-details" style="display: none;">
+                                <h3>Bayar di Tempat (COD)</h3>
+                                <p>Anda dapat membayar pesanan saat barang tiba di lokasi Anda. Pastikan Anda menyiapkan uang pas sesuai dengan total pembayaran.</p>
+                                <div class="cod-info">
+                                    <div class="info-item">
+                                        <i class="fas fa-check-circle"></i>
+                                        <span>Menerima pembayaran tunai</span>
+                                    </div>
+                                    <div class="info-item">
+                                        <i class="fas fa-check-circle"></i>
+                                        <span>Tersedia di seluruh Indonesia</span>
+                                    </div>
+                                    <div class="info-item">
+                                        <i class="fas fa-check-circle"></i>
+                                        <span>Gratis biaya layanan</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="payment-details" id="payment-cc-details" style="display: none;">
+                                <h3>Kartu Kredit</h3>
+                                <div class="cc-form">
+                                    <div class="form-group">
+                                        <label>Nomor Kartu Kredit</label>
+                                        <input type="text" placeholder="1234 5678 9012 3456">
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="form-group">
+                                            <label>Tanggal Kadaluarsa</label>
+                                            <input type="text" placeholder="MM/YY">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>CVV</label>
+                                            <input type="text" placeholder="123">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Nama Pemegang Kartu</label>
+                                        <input type="text" placeholder="John Doe">
+                                    </div>
+                                </div>
+                                <div class="accepted-cards">
+                                    <span>Kartu yang diterima:</span>
+                                    <i class="fab fa-cc-visa"></i>
+                                    <i class="fab fa-cc-mastercard"></i>
+                                    <i class="fab fa-cc-jcb"></i>
+                                </div>
+                            </div>
+                            
+                            <div class="payment-details" id="payment-cicilan-details" style="display: none;">
+                                <h3>Cicilan 0%</h3>
+                                <p>Pilih tenor cicilan:</p>
+                                <div class="installment-options">
+                                    <div class="installment-option">
+                                        <input type="radio" name="installment" id="installment-3">
+                                        <label for="installment-3">
+                                            <div class="installment-term">3 bulan</div>
+                                            <div class="installment-amount">Rp 1.999.667/bulan</div>
+                                        </label>
+                                    </div>
+                                    <div class="installment-option">
+                                        <input type="radio" name="installment" id="installment-6">
+                                        <label for="installment-6">
+                                            <div class="installment-term">6 bulan</div>
+                                            <div class="installment-amount">Rp 999.833/bulan</div>
+                                        </label>
+                                    </div>
+                                    <div class="installment-option">
+                                        <input type="radio" name="installment" id="installment-12">
+                                        <label for="installment-12">
+                                            <div class="installment-term">12 bulan</div>
+                                            <div class="installment-amount">Rp 499.917/bulan</div>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="cc-form">
+                                    <div class="form-group">
+                                        <label>Nomor Kartu Kredit</label>
+                                        <input type="text" placeholder="1234 5678 9012 3456">
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="form-group">
+                                            <label>Tanggal Kadaluarsa</label>
+                                            <input type="text" placeholder="MM/YY">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>CVV</label>
+                                            <input type="text" placeholder="123">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Nama Pemegang Kartu</label>
+                                        <input type="text" placeholder="John Doe">
+                                    </div>
+                                </div>
+                                <div class="accepted-cards">
+                                    <span>Bank yang mendukung cicilan 0%:</span>
+                                    <i class="fab fa-cc-visa"></i>
+                                    <i class="fab fa-cc-mastercard"></i>
+                                </div>
+                            </div>
+                            
+                            <div class="form-actions">
+                                <button class="btn btn-outline" id="back-to-address">Kembali</button>
+                                <button class="btn btn-primary" id="continue-to-confirmation">Lanjut ke Konfirmasi</button>
+                            </div>
+                        </div>
+                        
+                        <!-- Step 3: Konfirmasi Pesanan -->
+                        <div class="checkout-step" id="step-3">
+                            <h2>Konfirmasi Pesanan</h2>
+                            
+                            <div class="order-confirmation">
+                                <div class="confirmation-section">
+                                    <h3>Alamat Pengiriman</h3>
+                                    <div class="confirmation-address">
+                                        <p id="confirm-address-name">John Doe</p>
+                                        <p id="confirm-address-phone">08123456789</p>
+                                        <p id="confirm-address-detail">Jl. Contoh No. 123, RT 001/RW 002, Kelurahan Example, Kecamatan Sample, Jakarta Selatan, DKI Jakarta, 12345</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="confirmation-section">
+                                    <h3>Metode Pembayaran</h3>
+                                    <div class="confirmation-payment">
+                                        <div class="payment-method-info">
+                                            <div class="payment-icon">
+                                                <i class="fas fa-university"></i>
+                                            </div>
+                                            <div class="payment-details">
+                                                <div class="payment-name" id="confirm-payment-name">Transfer Bank</div>
+                                                <div class="payment-desc" id="confirm-payment-desc">Transfer melalui ATM, Internet Banking, atau Mobile Banking</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="confirmation-section">
+                                    <h3>Ringkasan Pesanan</h3>
+                                    <div class="order-items" id="confirm-order-items">
+                                        <!-- Item pesanan akan dimuat melalui JavaScript -->
+                                    </div>
+                                    
+                                    <div class="order-summary">
+                                        <div class="summary-row">
+                                            <span>Subtotal</span>
+                                            <span id="confirm-subtotal">Rp 5.999.000</span>
+                                        </div>
+                                        <div class="summary-row">
+                                            <span>Ongkos Kirim</span>
+                                            <span id="confirm-shipping">Rp 15.000</span>
+                                        </div>
+                                        <div class="summary-row">
+                                            <span>Diskon</span>
+                                            <span id="confirm-discount">- Rp 0</span>
+                                        </div>
+                                        <div class="summary-row total">
+                                            <span>Total</span>
+                                            <span id="confirm-total">Rp 6.014.000</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="confirmation-notes">
+                                    <h3>Catatan</h3>
+                                    <textarea placeholder="Tambahkan catatan untuk pesanan Anda (opsional)"></textarea>
+                                </div>
+                                
+                                <div class="form-actions">
+                                    <button class="btn btn-outline" id="back-to-payment">Kembali</button>
+                                    <button class="btn btn-primary" id="place-order">Buat Pesanan</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="checkout-sidebar">
+                        <div class="order-summary">
+                            <h3>Ringkasan Pesanan</h3>
+                            <div class="order-items" id="sidebar-order-items">
+                                <!-- Item pesanan akan dimuat melalui JavaScript -->
+                            </div>
+                            
+                            <div class="summary-row">
+                                <span>Subtotal</span>
+                                <span id="sidebar-subtotal">Rp 5.999.000</span>
+                            </div>
+                            <div class="summary-row">
+                                <span>Ongkos Kirim</span>
+                                <span id="sidebar-shipping">Rp 15.000</span>
+                            </div>
+                            <div class="summary-row">
+                                <span>Diskon</span>
+                                <span id="sidebar-discount">- Rp 0</span>
+                            </div>
+                            <div class="summary-row total">
+                                <span>Total</span>
+                                <span id="sidebar-total">Rp 6.014.000</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Order Success Modal -->
+    <div class="modal" id="order-success-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button class="modal-close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="success-icon">
+                    <i class="fas fa-check-circle"></i>
+                </div>
+                <h2>Pesanan Berhasil!</h2>
+                <p>Terima kasih telah berbelanja di Rangga. Pesanan Anda sedang diproses.</p>
+                <div class="order-info">
+                    <div class="info-item">
+                        <span>Nomor Pesanan:</span>
+                        <span id="order-number">ORD-20230510-1234</span>
+                    </div>
+                    <div class="info-item">
+                        <span>Total Pembayaran:</span>
+                        <span id="order-total">Rp 6.014.000</span>
+                    </div>
+                </div>
+                <div class="modal-actions">
+                    <a href="index.html" class="btn btn-outline">Kembali ke Beranda</a>
+                    <a href="dashboard.html" class="btn btn-primary">Lihat Pesanan Saya</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3>Tentang Rangga</h3>
+                    <p>Rangga adalah toko elektronik online terpercaya yang menyediakan berbagai produk elektronik berkualitas dengan harga terjangkau.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h3>Layanan Pelanggan</h3>
+                    <ul>
+                        <li><a href="#">Pusat Bantuan</a></li>
+                        <li><a href="#">Cara Pembelian</a></li>
+                        <li><a href="#">Pengiriman</a></li>
+                        <li><a href="#">Pengembalian</a></li>
+                        <li><a href="#">Garansi</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Informasi</h3>
+                    <ul>
+                        <li><a href="#">Tentang Kami</a></li>
+                        <li><a href="#">Karir</a></li>
+                        <li><a href="#">Kebijakan Privasi</a></li>
+                        <li><a href="#">Syarat & Ketentuan</a></li>
+                        <li><a href="#">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Kontak Kami</h3>
+                    <ul class="contact-info">
+                        <li><i class="fas fa-map-marker-alt"></i> Jl. Contoh No. 123, Jakarta</li>
+                        <li><i class="fas fa-phone"></i> (021) 1234-5678</li>
+                        <li><i class="fas fa-envelope"></i> info@rangga.co.id</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 Rangga. Hak Cipta Dilindungi.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/api.js"></script>
+</body>
+</html>

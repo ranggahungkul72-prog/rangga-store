@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Rangga</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-top">
+                <div class="logo">
+                    <a href="index.html">Rangga</a>
+                </div>
+                <div class="search-bar">
+                    <input type="text" placeholder="Cari produk...">
+                    <button type="submit"><i class="fas fa-search"></i></button>
+                </div>
+                <div class="header-actions">
+                    <a href="dashboard.html" class="user-account">
+                        <i class="fas fa-user"></i>
+                        <span>Akun Saya</span>
+                    </a>
+                    <a href="keranjang.html" class="cart">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-count">0</span>
+                    </a>
+                </div>
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html">Beranda</a></li>
+                    <li><a href="produk.html?kategori=smartphone">Smartphone</a></li>
+                    <li><a href="produk.html?kategori=laptop">Laptop</a></li>
+                    <li><a href="produk.html?kategori=tablet">Tablet</a></li>
+                    <li><a href="produk.html?kategori=aksesoris">Aksesoris</a></li>
+                    <li><a href="produk.html?kategori=tv">TV</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Dashboard Section -->
+    <section class="dashboard-section">
+        <div class="container">
+            <div class="dashboard-container">
+                <div class="dashboard-sidebar">
+                    <div class="user-profile">
+                        <div class="user-avatar">
+                            <img src="rangga.jpg" alt="rangga">
+                        </div>
+                        <div class="user-info">
+                            <h3 id="user-name">Rangga</h3>
+                            <p id="user-email">Rangga@gmail.com</p>
+                        </div>
+                    </div>
+                    
+                    <nav class="dashboard-nav">
+                        <ul>
+                            <li class="active">
+                                <a href="dashboard.html">
+                                    <i class="fas fa-tachometer-alt"></i>
+                                    <span>Dashboard</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="dashboard.html?tab=orders">
+                                    <i class="fas fa-shopping-bag"></i>
+                                    <span>Pesanan Saya</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="dashboard.html?tab=profile">
+                                    <i class="fas fa-user"></i>
+                                    <span>Profil Saya</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="dashboard.html?tab=address">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    <span>Alamat Pengiriman</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="dashboard.html?tab=wishlist">
+                                    <i class="fas fa-heart"></i>
+                                    <span>Wishlist</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="dashboard.html?tab=notifications">
+                                    <i class="fas fa-bell"></i>
+                                    <span>Notifikasi</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="dashboard.html?tab=settings">
+                                    <i class="fas fa-cog"></i>
+                                    <span>Pengaturan</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" id="logout-btn">
+                                    <i class="fas fa-sign-out-alt"></i>
+                                    <span>Keluar</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+                
+                <div class="dashboard-content">
+                    <!-- Dashboard Overview -->
+                    <div class="dashboard-tab active" id="tab-dashboard">
+                        <h1>Dashboard</h1>
+                        
+                        <div class="dashboard-stats">
+                            <div class="stat-card">
+                                <div class="stat-icon">
+                                    <i class="fas fa-shopping-bag"></i>
+                                </div>
+                                <div class="stat-info">
+                                    <h3>Total Pesanan</h3>
+                                    <p id="total-orders">12</p>
+                                </div>
+                            </div>
+                            
+                            <div class="stat-card">
+                                <div class="stat-icon">
+                                    <i class="fas fa-heart"></i>
+                                </div>
+                                <div class="stat-info">
+                                    <h3>Wishlist</h3>
+                                    <p id="total-wishlist">5</p>
+                                </div>
+                            </div>
+                            
+                            <div class="stat-card">
+                                <div class="stat-icon">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                </div>
+                                <div class="stat-info">
+                                    <h3>Alamat Tersimpan</h3>
+                                    <p id="total-addresses">2</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="dashboard-sections">
+                            <div class="recent-orders">
+                                <h2>Pesanan Terbaru</h2>
+                                <div class="orders-table">
+                                    <div class="orders-header">
+                                        <div class="order-id">ID Pesanan</div>
+                                        <div class="order-date">Tanggal</div>
+                                        <div class="order-total">Total</div>
+                                        <div class="order-status">Status</div>
+                                        <div class="order-action">Aksi</div>
+                                    </div>
+                                    <div class="orders-body" id="recent-orders-list">
+                                        <!-- Pesanan terbaru akan dimuat melalui JavaScript -->
+                                    </div>
+                                </div>
+                                <div class="text-center">
+                                    <a href="dashboard.html?tab=orders" class="btn btn-outline">Lihat Semua Pesanan</a>
+                                </div>
+                            </div>
+                            
+                            <div class="recommended-products">
+                                <h2>Produk Rekomendasi</h2>
+                                <div class="product-grid" id="recommended-products-grid">
+                                    <!-- Produk rekomendasi akan dimuat melalui JavaScript -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Orders Tab -->
+                    <div class="dashboard-tab" id="tab-orders">
+                        <h1>Pesanan Saya</h1>
+                        
+                        <div class="orders-filter">
+                            <div class="filter-group">
+                                <label>Status Pesanan:</label>
+                                <select id="order-status-filter">
+                                    <option value="all">Semua</option>
+                                    <option value="pending">Menunggu Pembayaran</option>
+                                    <option value="processing">Diproses</option>
+                                    <option value="shipped">Dikirim</option>
+                                    <option value="delivered">Diterima</option>
+                                    <option value="cancelled">Dibatalkan</option>
+                                </select>
+                            </div>
+                            <div class="filter-group">
+                                <label>Periode:</label>
+                                <select id="order-period-filter">
+                                    <option value="all">Semua Waktu</option>
+                                    <option value="last-7">7 Hari Terakhir</option>
+                                    <option value="last-30">30 Hari Terakhir</option>
+                                    <option value="last-90">90 Hari Terakhir</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="orders-table">
+                            <div class="orders-header">
+                                <div class="order-id">ID Pesanan</div>
+                                <div class="order-date">Tanggal</div>
+                                <div class="order-items">Produk</div>
+                                <div class="order-total">Total</div>
+                                <div class="order-status">Status</div>
+                                <div class="order-action">Aksi</div>
+                            </div>
+                            <div class="orders-body" id="all-orders-list">
+                                <!-- Semua pesanan akan dimuat melalui JavaScript -->
+                            </div>
+                        </div>
+                        
+                        <div class="pagination">
+                            <button class="page-btn active">1</button>
+                            <button class="page-btn">2</button>
+                            <button class="page-btn">3</button>
+                            <button class="page-btn">></button>
+                        </div>
+                    </div>
+                    
+                    <!-- Profile Tab -->
+                    <div class="dashboard-tab" id="tab-profile">
+                        <h1>Profil Saya</h1>
+                        
+                        <div class="profile-container">
+                            <div class="profile-avatar">
+                                <div class="avatar-image">
+                                    <img src="rangga.jpg" alt="rangga">
+                                </div>
+                                <button class="btn btn-outline">Ganti Foto</button>
+                            </div>
+                            
+                            <div class="profile-form">
+                                <form id="profile-form">
+                                    <div class="form-row">
+                                        <div class="form-group">
+                                            <label>Nama Lengkap</label>
+                                            <input type="text" id="profile-fullname" value="John Doe" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Email</label>
+                                            <input type="email" id="profile-email" value="ranggahungkul72@gmail.com" required>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="form-row">
+                                        <div class="form-group">
+                                            <label>No. Telepon</label>
+                                            <input type="tel" id="profile-phone" value="085220360567" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Tanggal Lahir</label>
+                                            <input type="date" id="profile-birthdate" value="1990-01-01">
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <label>Jenis Kelamin</label>
+                                        <div class="radio-group">
+                                            <label class="radio-label">
+                                                <input type="radio" name="gender" value="male" checked>
+                                                <span>Laki-laki</span>
+                                            </label>
+                                            <label class="radio-label">
+                                                <input type="radio" name="gender" value="female">
+                                                <span>Perempuan</span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="form-actions">
+                                        <button type="submit" class="btn btn-primary">Simpan Perubahan</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        
+                        <div class="change-password">
+                            <h2>Ubah Kata Sandi</h2>
+                            <form id="password-form">
+                                <div class="form-group">
+                                    <label>Kata Sandi Saat Ini</label>
+                                    <input type="password" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>Kata Sandi Baru</label>
+                                    <input type="password" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>Konfirmasi Kata Sandi Baru</label>
+                                    <input type="password" required>
+                                </div>
+                                <div class="form-actions">
+                                    <button type="submit" class="btn btn-primary">Ubah Kata Sandi</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    
+                    <!-- Address Tab -->
+                    <div class="dashboard-tab" id="tab-address">
+                        <h1>Alamat Pengiriman</h1>
+                        
+                        <div class="address-actions">
+                            <button class="btn btn-primary" id="add-new-address">+ Tambah Alamat Baru</button>
+                        </div>
+                        
+                        <div class="address-list" id="address-list">
+                            <!-- Daftar alamat akan dimuat melalui JavaScript -->
+                        </div>
+                        
+                        <!-- Add/Edit Address Modal -->
+                        <div class="modal" id="address-modal">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h2 id="address-modal-title">Tambah Alamat Baru</h2>
+                                    <button class="modal-close">&times;</button>
+                                </div>
+                                <div class="modal-body">
+                                    <form id="address-form">
+                                        <div class="form-group">
+                                            <label>Nama Alamat (Contoh: Rumah, Kantor)</label>
+                                            <input type="text" id="address-label" required>
+                                        </div>
+                                        
+                                        <div class="form-row">
+                                            <div class="form-group">
+                                                <label>Nama Penerima</label>
+                                                <input type="text" id="address-recipient" required>
+                                            </div>
+                                            <div class="form-group">
+                                                <label>No. Telepon</label>
+                                                <input type="tel" id="address-phone" required>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="form-group">
+                                            <label>Provinsi</label>
+                                            <select id="address-province" required>
+                                                <option value="">Pilih Provinsi</option>
+                                                <option value="dkijakarta">DKI Jakarta</option>
+                                                <option value="jabar">Jawa Barat</option>
+                                                <option value="jateng">Jawa Tengah</option>
+                                                <option value="jatim">Jawa Timur</option>
+                                            </select>
+                                        </div>
+                                        
+                                        <div class="form-row">
+                                            <div class="form-group">
+                                                <label>Kota/Kabupaten</label>
+                                                <select id="address-city" required>
+                                                    <option value="">Pilih Kota/Kabupaten</option>
+                                                    <option value="jaksel">Jakarta Selatan</option>
+                                                    <option value="jakpus">Jakarta Pusat</option>
+                                                    <option value="jakbar">Jakarta Barat</option>
+                                                    <option value="jaktim">Jakarta Timur</option>
+                                                    <option value="jakut">Jakarta Utara</option>
+                                                </select>
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Kecamatan</label>
+                                                <select id="address-district" required>
+                                                    <option value="">Pilih Kecamatan</option>
+                                                    <option value="kec1">Kecamatan 1</option>
+                                                    <option value="kec2">Kecamatan 2</option>
+                                                    <option value="kec3">Kecamatan 3</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="form-row">
+                                            <div class="form-group">
+                                                <label>Kelurahan</label>
+                                                <input type="text" id="address-village" required>
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Kode Pos</label>
+                                                <input type="text" id="address-postal" required>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="form-group">
+                                            <label>Alamat Lengkap</label>
+                                            <textarea rows="3" id="address-detail" required></textarea>
+                                        </div>
+                                        
+                                        <div class="form-group checkbox-group">
+                                            <label class="checkbox-label">
+                                                <input type="checkbox" id="address-default">
+                                                <span>Jadikan sebagai alamat utama</span>
+                                            </label>
+                                        </div>
+                                        
+                                        <div class="form-actions">
+                                            <button type="button" class="btn btn-outline btn-cancel">Batal</button>
+                                            <button type="submit" class="btn btn-primary">Simpan Alamat</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Wishlist Tab -->
+                    <div class="dashboard-tab" id="tab-wishlist">
+                        <h1>Wishlist</h1>
+                        
+                        <div class="wishlist-container">
+                            <div class="wishlist-empty" id="wishlist-empty" style="display: none;">
+                                <i class="fas fa-heart"></i>
+                                <h3>Wishlist Kosong</h3>
+                                <p>Belum ada produk di wishlist Anda</p>
+                                <a href="produk.html" class="btn btn-primary">Belanja Sekarang</a>
+                            </div>
+                            
+                            <div class="wishlist-grid" id="wishlist-grid">
+                                <!-- Produk wishlist akan dimuat melalui JavaScript -->
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Notifications Tab -->
+                    <div class="dashboard-tab" id="tab-notifications">
+                        <h1>Notifikasi</h1>
+                        
+                        <div class="notifications-container">
+                            <div class="notifications-header">
+                                <div class="notification-filter">
+                                    <button class="filter-btn active" data-filter="all">Semua</button>
+                                    <button class="filter-btn" data-filter="order">Pesanan</button>
+                                    <button class="filter-btn" data-filter="promotion">Promosi</button>
+                                    <button class="filter-btn" data-filter="system">Sistem</button>
+                                </div>
+                                <button class="btn btn-outline" id="mark-all-read">Tandai Semua Dibaca</button>
+                            </div>
+                            
+                            <div class="notifications-list" id="notifications-list">
+                                <!-- Notifikasi akan dimuat melalui JavaScript -->
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Settings Tab -->
+                    <div class="dashboard-tab" id="tab-settings">
+                        <h1>Pengaturan</h1>
+                        
+                        <div class="settings-container">
+                            <div class="settings-section">
+                                <h2>Preferensi Notifikasi</h2>
+                                <div class="settings-form">
+                                    <div class="setting-item">
+                                        <div class="setting-info">
+                                            <h3>Email Notifikasi</h3>
+                                            <p>Kirim notifikasi ke email saya</p>
+                                        </div>
+                                        <div class="setting-toggle">
+                                            <label class="toggle-switch">
+                                                <input type="checkbox" checked>
+                                                <span class="toggle-slider"></span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="setting-item">
+                                        <div class="setting-info">
+                                            <h3>SMS Notifikasi</h3>
+                                            <p>Kirim notifikasi ke nomor telepon saya</p>
+                                        </div>
+                                        <div class="setting-toggle">
+                                            <label class="toggle-switch">
+                                                <input type="checkbox">
+                                                <span class="toggle-slider"></span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="setting-item">
+                                        <div class="setting-info">
+                                            <h3>Push Notifikasi</h3>
+                                            <p>Kirim notifikasi push ke browser</p>
+                                        </div>
+                                        <div class="setting-toggle">
+                                            <label class="toggle-switch">
+                                                <input type="checkbox" checked>
+                                                <span class="toggle-slider"></span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="settings-section">
+                                <h2>Preferensi Privasi</h2>
+                                <div class="settings-form">
+                                    <div class="setting-item">
+                                        <div class="setting-info">
+                                            <h3>Tampilkan Profil Publik</h3>
+                                            <p>Izinkan pengguna lain melihat profil saya</p>
+                                        </div>
+                                        <div class="setting-toggle">
+                                            <label class="toggle-switch">
+                                                <input type="checkbox">
+                                                <span class="toggle-slider"></span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="setting-item">
+                                        <div class="setting-info">
+                                            <h3>Tampilkan Aktivitas</h3>
+                                            <p>Izinkan pengguna lain melihat aktivitas saya</p>
+                                        </div>
+                                        <div class="setting-toggle">
+                                            <label class="toggle-switch">
+                                                <input type="checkbox">
+                                                <span class="toggle-slider"></span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="settings-section">
+                                <h2>Preferensi Akun</h2>
+                                <div class="settings-form">
+                                    <div class="setting-item">
+                                        <div class="setting-info">
+                                            <h3>Bahasa</h3>
+                                            <p>Pilih bahasa yang ingin Anda gunakan</p>
+                                        </div>
+                                        <div class="setting-select">
+                                            <select>
+                                                <option value="id">Bahasa Indonesia</option>
+                                                <option value="en">English</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="setting-item">
+                                        <div class="setting-info">
+                                            <h3>Mata Uang</h3>
+                                            <p>Pilih mata uang yang ingin Anda gunakan</p>
+                                        </div>
+                                        <div class="setting-select">
+                                            <select>
+                                                <option value="idr">Rupiah (IDR)</option>
+                                                <option value="usd">US Dollar (USD)</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="settings-section danger-zone">
+                                <h2>Zona Berbahaya</h2>
+                                <div class="settings-form">
+                                    <div class="setting-item">
+                                        <div class="setting-info">
+                                            <h3>Hapus Akun</h3>
+                                            <p>Hapus akun Anda secara permanen</p>
+                                        </div>
+                                        <div class="setting-action">
+                                            <button class="btn btn-danger">Hapus Akun</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3>Tentang Rangga</h3>
+                    <p>Rangga adalah toko elektronik online terpercaya yang menyediakan berbagai produk elektronik berkualitas dengan harga terjangkau.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h3>Layanan Pelanggan</h3>
+                    <ul>
+                        <li><a href="#">Pusat Bantuan</a></li>
+                        <li><a href="#">Cara Pembelian</a></li>
+                        <li><a href="#">Pengiriman</a></li>
+                        <li><a href="#">Pengembalian</a></li>
+                        <li><a href="#">Garansi</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Informasi</h3>
+                    <ul>
+                        <li><a href="#">Tentang Kami</a></li>
+                        <li><a href="#">Karir</a></li>
+                        <li><a href="#">Kebijakan Privasi</a></li>
+                        <li><a href="#">Syarat & Ketentuan</a></li>
+                        <li><a href="#">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Kontak Kami</h3>
+                    <ul class="contact-info">
+                        <li><i class="fas fa-map-marker-alt"></i> Jl. Contoh No. 123, Jakarta</li>
+                        <li><i class="fas fa-phone"></i> (021) 1234-5678</li>
+                        <li><i class="fas fa-envelope"></i> info@rangga.co.id</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 Rangga. Hak Cipta Dilindungi.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/api.js"></script>
+</body>
+</html>

@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rangga - Toko Elektronik Online</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-top">
+                <div class="logo">
+                    <a href="index.html">Rangga Store</a>
+                </div>
+                <div class="search-bar">
+                    <input type="text" placeholder="Cari produk...">
+                    <button type="submit"><i class="fas fa-search"></i></button>
+                </div>
+                <div class="header-actions">
+                    <a href="dashboard.html" class="user-account">
+                        <i class="fas fa-user"></i>
+                        <span>Akun Saya</span>
+                    </a>
+                    <a href="keranjang.html" class="cart">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-count">0</span>
+                    </a>
+                </div>
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html">Beranda</a></li>
+                    <li><a href="produk.html?kategori=smartphone">Smartphone</a></li>
+                    <li><a href="produk.html?kategori=laptop">Laptop</a></li>
+                    <li><a href="produk.html?kategori=tablet">Tablet</a></li>
+                    <li><a href="produk.html?kategori=aksesoris">Aksesoris</a></li>
+                    <li><a href="produk.html?kategori=tv">TV</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-slider">
+                <div class="hero-slide active">
+                    <div class="hero-content">
+                        <h1>Smartphone Terbaru</h1>
+                        <p>Dapatkan smartphone terbaru dengan teknologi canggih</p>
+                        <a href="produk.html?kategori=smartphone" class="btn btn-primary">Belanja Sekarang</a>
+                    </div>
+                    <div class="hero-image">
+                        <img src="rangga.jpg" alt="Smartphone Terbaru">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Products -->
+    <section class="featured-products">
+        <div class="container">
+            <h2 class="section-title">Produk Unggulan</h2>
+            <div class="product-grid">
+                <!-- Produk akan dimuat melalui JavaScript -->
+            </div>
+            <div class="text-center">
+                <a href="produk.html" class="btn btn-outline">Lihat Semua Produk</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Categories -->
+    <section class="categories">
+        <div class="container">
+            <h2 class="section-title">Kategori Produk</h2>
+            <div class="category-grid">
+                <div class="category-card">
+                    <a href="produk.html?kategori=smartphone">
+                        <div class="category-icon">
+                            <i class="fas fa-mobile-alt"></i>
+                        </div>
+                        <h3>Smartphone</h3>
+                    </a>
+                </div>
+                <div class="category-card">
+                    <a href="produk.html?kategori=laptop">
+                        <div class="category-icon">
+                            <i class="fas fa-laptop"></i>
+                        </div>
+                        <h3>Laptop</h3>
+                    </a>
+                </div>
+                <div class="category-card">
+                    <a href="produk.html?kategori=tablet">
+                        <div class="category-icon">
+                            <i class="fas fa-tablet-alt"></i>
+                        </div>
+                        <h3>Tablet</h3>
+                    </a>
+                </div>
+                <div class="category-card">
+                    <a href="produk.html?kategori=aksesoris">
+                        <div class="category-icon">
+                            <i class="fas fa-headphones"></i>
+                        </div>
+                        <h3>Aksesoris</h3>
+                    </a>
+                </div>
+                <div class="category-card">
+                    <a href="produk.html?kategori=tv">
+                        <div class="category-icon">
+                            <i class="fas fa-tv"></i>
+                        </div>
+                        <h3>TV</h3>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="newsletter">
+        <div class="container">
+            <div class="newsletter-content">
+                <h2>Daftar Newsletter Kami</h2>
+                <p>Dapatkan penawaran spesial dan informasi produk terbaru</p>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Masukkan email Anda" required>
+                    <button type="submit" class="btn btn-primary">Daftar</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3>Tentang Rangga</h3>
+                    <p>Rangga adalah toko elektronik online terpercaya yang menyediakan berbagai produk elektronik berkualitas dengan harga terjangkau.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h3>Layanan Pelanggan</h3>
+                    <ul>
+                        <li><a href="#">Pusat Bantuan</a></li>
+                        <li><a href="#">Cara Pembelian</a></li>
+                        <li><a href="#">Pengiriman</a></li>
+                        <li><a href="#">Pengembalian</a></li>
+                        <li><a href="#">Garansi</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Informasi</h3>
+                    <ul>
+                        <li><a href="#">Tentang Kami</a></li>
+                        <li><a href="#">Karir</a></li>
+                        <li><a href="#">Kebijakan Privasi</a></li>
+                        <li><a href="#">Syarat & Ketentuan</a></li>
+                        <li><a href="#">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Kontak Kami</h3>
+                    <ul class="contact-info">
+                        <li><i class="fas fa-map-marker-alt"></i> Jl. Contoh No. 123, Jakarta</li>
+                        <li><i class="fas fa-phone"></i> (021) 1234-5678</li>
+                        <li><i class="fas fa-envelope"></i> info@rangga.co.id</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Rangga. Hak Cipta Dilindungi.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/api.js"></script>
+</body>
+</html>

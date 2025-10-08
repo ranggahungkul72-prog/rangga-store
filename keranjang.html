@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Keranjang Belanja - Rangga</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-top">
+                <div class="logo">
+                    <a href="index.html">Rangga</a>
+                </div>
+                <div class="search-bar">
+                    <input type="text" placeholder="Cari produk...">
+                    <button type="submit"><i class="fas fa-search"></i></button>
+                </div>
+                <div class="header-actions">
+                    <a href="dashboard.html" class="user-account">
+                        <i class="fas fa-user"></i>
+                        <span>Akun Saya</span>
+                    </a>
+                    <a href="keranjang.html" class="cart">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-count">0</span>
+                    </a>
+                </div>
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html">Beranda</a></li>
+                    <li><a href="produk.html?kategori=smartphone">Smartphone</a></li>
+                    <li><a href="produk.html?kategori=laptop">Laptop</a></li>
+                    <li><a href="produk.html?kategori=tablet">Tablet</a></li>
+                    <li><a href="produk.html?kategori=aksesoris">Aksesoris</a></li>
+                    <li><a href="produk.html?kategori=tv">TV</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Breadcrumb -->
+    <div class="breadcrumb">
+        <div class="container">
+            <ul>
+                <li><a href="index.html">Beranda</a></li>
+                <li><span>Keranjang Belanja</span></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Cart Section -->
+    <section class="cart-section">
+        <div class="container">
+            <h1 class="section-title">Keranjang Belanja</h1>
+            
+            <div class="cart-container">
+                <div class="cart-items">
+                    <div class="cart-empty" id="cart-empty">
+                        <i class="fas fa-shopping-cart"></i>
+                        <h3>Keranjang Belanja Kosong</h3>
+                        <p>Belum ada produk di keranjang belanja Anda</p>
+                        <a href="produk.html" class="btn btn-primary">Belanja Sekarang</a>
+                    </div>
+                    
+                    <div class="cart-table" id="cart-table">
+                        <div class="cart-header">
+                            <div class="cart-product">Produk</div>
+                            <div class="cart-price">Harga</div>
+                            <div class="cart-quantity">Jumlah</div>
+                            <div class="cart-total">Total</div>
+                            <div class="cart-action">Aksi</div>
+                        </div>
+                        
+                        <div class="cart-body" id="cart-items-container">
+                            <!-- Item keranjang akan dimuat melalui JavaScript -->
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="cart-summary">
+                    <div class="summary-card">
+                        <h3>Ringkasan Belanja</h3>
+                        <div class="summary-row">
+                            <span>Subtotal</span>
+                            <span id="subtotal">Rp 0</span>
+                        </div>
+                        <div class="summary-row">
+                            <span>Ongkos Kirim</span>
+                            <span id="shipping-cost">Rp 0</span>
+                        </div>
+                        <div class="summary-row">
+                            <span>Diskon</span>
+                            <span id="discount">- Rp 0</span>
+                        </div>
+                        <div class="summary-row total">
+                            <span>Total</span>
+                            <span id="total">Rp 0</span>
+                        </div>
+                        <div class="summary-actions">
+                            <a href="produk.html" class="btn btn-outline">Lanjutkan Belanja</a>
+                            <a href="checkout.html" class="btn btn-primary">Proses Pembayaran</a>
+                        </div>
+                    </div>
+                    
+                    <div class="promo-code">
+                        <h3>Kode Promo</h3>
+                        <div class="promo-form">
+                            <input type="text" placeholder="Masukkan kode promo">
+                            <button class="btn btn-primary">Terapkan</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3>Tentang Rangga</h3>
+                    <p>Rangga adalah toko elektronik online terpercaya yang menyediakan berbagai produk elektronik berkualitas dengan harga terjangkau.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h3>Layanan Pelanggan</h3>
+                    <ul>
+                        <li><a href="#">Pusat Bantuan</a></li>
+                        <li><a href="#">Cara Pembelian</a></li>
+                        <li><a href="#">Pengiriman</a></li>
+                        <li><a href="#">Pengembalian</a></li>
+                        <li><a href="#">Garansi</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Informasi</h3>
+                    <ul>
+                        <li><a href="#">Tentang Kami</a></li>
+                        <li><a href="#">Karir</a></li>
+                        <li><a href="#">Kebijakan Privasi</a></li>
+                        <li><a href="#">Syarat & Ketentuan</a></li>
+                        <li><a href="#">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Kontak Kami</h3>
+                    <ul class="contact-info">
+                        <li><i class="fas fa-map-marker-alt"></i> Jl. Contoh No. 123, Jakarta</li>
+                        <li><i class="fas fa-phone"></i> (021) 1234-5678</li>
+                        <li><i class="fas fa-envelope"></i> info@rangga.co.id</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 Rangga. Hak Cipta Dilindungi.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/api.js"></script>
+</body>
+</html>
